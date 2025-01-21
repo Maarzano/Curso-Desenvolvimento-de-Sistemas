@@ -78,7 +78,7 @@ A área de Recursos Humanos é responsável pela gestão dos colaboradores e das
 
 - Tabelas:
   - **Funcionários**
-  - **Departamentos**
+  - **Setores**
   - **Cargos**
   - **Salários**
   - **Férias**
