@@ -100,6 +100,9 @@ Este trabalho visa não apenas o entendimento e aplicação de conceitos de mode
 2. **Configure o SQL Server** (ou qualquer outro SGBD compatível).
 3. **Importe o arquivo SQL** com a estrutura do banco de dados e os dados populados.
 4. **Execute os scripts** para verificar a integridade dos dados e o funcionamento das relações.
+5. **copie o Script** abaxio e cole em uma Query para criar tudo se quiser:
+    ```sql
+    COLOCAR QUERY
 
 
 
