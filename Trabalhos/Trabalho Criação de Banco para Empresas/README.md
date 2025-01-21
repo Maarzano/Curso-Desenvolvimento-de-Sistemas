@@ -52,10 +52,10 @@ A área de Geral visa gerenciar as informações que seriam utilizadas por mais 
 
 #### 2. Relacionamento com o Cliente
 
-A área de Relacionamento com o Cliente visa gerenciar as informações e interações do banco com seus clientes. Tabelas e dados relacionados a contas, transações e histórico de contato estão nesta área.
+A área de Relacionamento com o Cliente visa gerenciar as informações e interações do banco com seus clientes. Tabelas e dados relacionados a contatos, FeedBacks e histórico de atendimentos estão nesta área.
 
 - Tabelas:
-  - **Feedback**
+  - **FeedBacks**
   - **Alerta e Suspenções**
   - **Atendente**
   - **Atendimentos**
