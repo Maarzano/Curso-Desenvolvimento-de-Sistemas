@@ -58,7 +58,7 @@ A área de Relacionamento com o Cliente visa gerenciar as informações e intera
   - **Feedback**
   - **Alerta e Suspenções**
   - **Atendente**
-  - **C_Atendimentos**
+  - **Atendimentos**
   - **Contatos**
 
 #### 3. Operações Bancárias
@@ -95,12 +95,14 @@ A área de Recursos Humanos é responsável pela gestão dos colaboradores e das
 Este trabalho visa não apenas o entendimento e aplicação de conceitos de modelagem de banco de dados, mas também o desenvolvimento de uma solução que seja funcional e representativa de um ambiente bancário real. Com as áreas bem definidas e tabelas normalizadas, o banco de dados foi construído de forma a ser eficiente, organizado e com integridade dos dados garantido.
 
 ### Como Executar
+1.  **Backup:**
+  - **Configure o SQL Server** (ou qualquer outro SGBD compatível).
+  - **Baixe** o arquivo de Backup.
+  - **Faça o backup**.
 
-1. **Clone este repositório** para seu ambiente local.
-2. **Configure o SQL Server** (ou qualquer outro SGBD compatível).
-3. **Importe o arquivo SQL** com a estrutura do banco de dados e os dados populados.
-4. **Execute os scripts** para verificar a integridade dos dados e o funcionamento das relações.
-5. **copie o Script** abaxio e cole em uma Query para criar tudo se quiser:
+2. **Query:**
+  - **Configure o SQL Server** (ou qualquer outro SGBD compatível).
+  - **Copie a Query** a seguir, cole em seu SSMS e execute.
     ```sql
     COLOCAR QUERY
 
