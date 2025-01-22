@@ -29,7 +29,7 @@ Cada integrante do grupo ficou responsável pela criação de um conjunto de tab
   
 - **Tabelas por Área:** Cada área possui no mínimo 5 tabelas de composição.
   
-- **População de Dados:** O banco contém pelo menos 15 inserções de dados em cada tabela.
+- **População de Dados:** O banco contém pelo menos 15 inserções de dados em cada tabela (dados fictícios).
 
 - **Primeira Forma Normal (1NF):** Todo o banco foi desenvolvido seguindo a Primeira Forma Normal, ou seja, sem dados repetidos e com atributos atômicos.
 
@@ -55,8 +55,8 @@ A área de Geral visa gerenciar as informações que seriam utilizadas por mais 
 A área de Relacionamento com o Cliente visa gerenciar as informações e interações do banco com seus clientes. Tabelas e dados relacionados a contatos, FeedBacks e histórico de atendimentos estão nesta área.
 
 - Tabelas:
-  - **FeedBacks**
-  - **Alerta e Suspenções**
+  - **Feedbacks**
+  - **Alertas e Suspensões**
   - **Atendente**
   - **Atendimentos**
   - **Contatos**
@@ -86,13 +86,13 @@ A área de Recursos Humanos é responsável pela gestão dos colaboradores e das
 ### Tecnologias Utilizadas
 
 - **Banco de Dados:** SQL Server
-- **Ferramentas de Modelagem:** Próprio SSMS  (Diagrama Entidade-Relacionamento)
+- **Ferramentas de Modelagem:** Diagrama de Entidade-Relacionamento (DER) no SSMS
 - **SGBD:** SQL Server Management Studio (SSMS)
-- **IA:** As informações das tabelas foram geradas utlizando ajuda do "ChatGPT"
+- **IA:** A geração de dados fictícios foi realizada com o auxílio do 'ChatGPT'
 
 ### Conclusão
 
-Este trabalho visa não apenas o entendimento e aplicação de conceitos de modelagem de banco de dados, mas também o desenvolvimento de uma solução que seja funcional e representativa de um ambiente bancário real. Com as áreas bem definidas e tabelas normalizadas, o banco de dados foi construído de forma a ser eficiente, organizado e com integridade dos dados garantido.
+Este trabalho visa não apenas o entendimento e aplicação de conceitos de modelagem de banco de dados, mas também o desenvolvimento de uma solução que seja funcional e representativa de um ambiente bancário real. Com as áreas bem definidas e tabelas normalizadas, o banco de dados foi construído de forma a ser eficiente, organizado e com integridade dos dados garantida.
 
 ### Como Executar
 1.  **Backup:**
