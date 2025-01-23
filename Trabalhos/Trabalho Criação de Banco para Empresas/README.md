@@ -646,6 +646,9 @@ Este trabalho visa não apenas o entendimento e aplicação de conceitos de mode
     
     SELECT *
     FROM ATENDENTE
+
+    SELECT *
+    FROM ATENDIMENTOS
     
     SELECT *
     FROM CARGOS
@@ -658,6 +661,9 @@ Este trabalho visa não apenas o entendimento e aplicação de conceitos de mode
     
     SELECT *
     FROM CONTAS
+
+    SELECT *
+    FROM FEEDBACK
     
     SELECT *
     FROM CONTATOS

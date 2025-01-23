@@ -8,7 +8,7 @@ USE DB_BancoInter;
 
 GO
 
---TABELAS COM INFORMAÇÕES GERAIS SOBRE CLIENTES
+--TABELAS COM INFORMAï¿½ï¿½ES GERAIS SOBRE CLIENTES
 
 CREATE TABLE CLIENTES (
     CLIENTE_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -24,7 +24,7 @@ INSERT INTO CLIENTES (NOME, CPF, TELEFONE, EMAIL) VALUES
 ('Carlos Silva', '12345678901', '9988776655', 'carlos.silva@email.com'),
 ('Ana Oliveira', '23456789012', '9977665544', 'ana.oliveira@email.com'),
 ('Maria Santos', '34567890123', '9966554433', 'maria.santos@email.com'),
-('João Souza', '45678901234', '9955443322', 'joao.souza@email.com'),
+('Joï¿½o Souza', '45678901234', '9955443322', 'joao.souza@email.com'),
 ('Paula Pereira', '56789012345', '9944332211', 'paula.pereira@email.com'),
 ('Fernando Costa', '67890123456', '9933221100', 'fernando.costa@email.com'),
 ('Rita Almeida', '78901234567', '9922110099', 'rita.almeida@email.com'),
@@ -52,24 +52,24 @@ GO
 
 INSERT INTO CONTAS (CLIENTE_ID, TIPO_CONTA, SALDO, AGENCIA) VALUES
 (1, 'Corrente', 1000.00, 1234),
-(2, 'Poupança', 1500.50, 1234),
+(2, 'Poupanï¿½a', 1500.50, 1234),
 (3, 'Corrente', 2000.00, 2345),
-(4, 'Poupança', 2500.75, 2345),
+(4, 'Poupanï¿½a', 2500.75, 2345),
 (5, 'Corrente', 3000.00, 3456),
-(6, 'Poupança', 3500.25, 3456),
+(6, 'Poupanï¿½a', 3500.25, 3456),
 (7, 'Corrente', 4000.00, 4567),
-(8, 'Poupança', 4500.50, 4567),
+(8, 'Poupanï¿½a', 4500.50, 4567),
 (9, 'Corrente', 5000.00, 5678),
-(10, 'Poupança', 5500.75, 5678),
+(10, 'Poupanï¿½a', 5500.75, 5678),
 (11, 'Corrente', 6000.00, 6789),
-(12, 'Poupança', 6500.25, 6789),
+(12, 'Poupanï¿½a', 6500.25, 6789),
 (13, 'Corrente', 7000.00, 7890),
-(14, 'Poupança', 7500.50, 7890),
+(14, 'Poupanï¿½a', 7500.50, 7890),
 (15, 'Corrente', 8000.00, 8901);
 
 GO
 
---ÁREA DE RELACIONAMENTO DO CLIENTE DO BANCO INTER
+--ï¿½REA DE RELACIONAMENTO DO CLIENTE DO BANCO INTER
 
 CREATE TABLE CONTATOS (
     CONTATO_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -144,20 +144,20 @@ GO
 
 INSERT INTO ATENDIMENTOS (CLIENTE_ID, DATA_HORA, DESCRICAO_ATENDIMENTOS, ATENDENTE_ID) VALUES
 (1, '2025-01-01T10:00:00', 'Consulta sobre saldo', 1),
-(2, '2025-01-02T11:00:00', 'Consulta sobre empréstimo', 2),
+(2, '2025-01-02T11:00:00', 'Consulta sobre emprï¿½stimo', 2),
 (3, '2025-01-03T12:00:00', 'Problema com conta corrente', 3),
-(4, '2025-01-04T13:00:00', 'Solicitação de cartão', 4),
-(5, '2025-01-05T14:00:00', 'Dúvida sobre investimentos', 5),
-(6, '2025-01-06T15:00:00', 'Alteração de dados cadastrais', 6),
+(4, '2025-01-04T13:00:00', 'Solicitaï¿½ï¿½o de cartï¿½o', 4),
+(5, '2025-01-05T14:00:00', 'Dï¿½vida sobre investimentos', 5),
+(6, '2025-01-06T15:00:00', 'Alteraï¿½ï¿½o de dados cadastrais', 6),
 (7, '2025-01-07T16:00:00', 'Consulta sobre taxas', 7),
-(8, '2025-01-08T17:00:00', 'Bloqueio de cartão', 8),
+(8, '2025-01-08T17:00:00', 'Bloqueio de cartï¿½o', 8),
 (9, '2025-01-09T18:00:00', 'Esclarecimento sobre tarifas', 9),
 (10, '2025-01-10T19:00:00', 'Cancelamento de conta', 10),
-(11, '2025-01-11T20:00:00', 'Ajuste de limite de cartão', 11),
-(12, '2025-01-12T21:00:00', 'Problema técnico no app', 12),
+(11, '2025-01-11T20:00:00', 'Ajuste de limite de cartï¿½o', 11),
+(12, '2025-01-12T21:00:00', 'Problema tï¿½cnico no app', 12),
 (13, '2025-01-13T22:00:00', 'Recarga de celular', 13),
 (14, '2025-01-14T23:00:00', 'Consulta sobre saldo', 14),
-(15, '2025-01-15T23:30:00', 'Solicitação de transferência', 15);
+(15, '2025-01-15T23:30:00', 'Solicitaï¿½ï¿½o de transferï¿½ncia', 15);
 
 GO
 
@@ -178,17 +178,17 @@ INSERT INTO FEEDBACK (CLIENTE_ID, ATENDIMENTO_ID, NOTA, COMENTARIO, DATA_FEEDBAC
 (1, 1, 5, 'Atendimento excelente!', '2025-01-01T10:30:00'),
 (2, 2, 4, 'Atendente muito atencioso', '2025-01-02T11:30:00'),
 (3, 3, 3, 'O problema demorou para ser resolvido', '2025-01-03T12:30:00'),
-(4, 4, 5, 'Resolução rápida e eficiente', '2025-01-04T13:30:00'),
+(4, 4, 5, 'Resoluï¿½ï¿½o rï¿½pida e eficiente', '2025-01-04T13:30:00'),
 (5, 5, 4, 'Atendente bem preparado, mas faltou mais clareza', '2025-01-05T14:30:00'),
-(6, 6, 5, 'Amei a solução apresentada', '2025-01-06T15:30:00'),
+(6, 6, 5, 'Amei a soluï¿½ï¿½o apresentada', '2025-01-06T15:30:00'),
 (7, 7, 3, 'Resposta lenta, mas resolveu no final', '2025-01-07T16:30:00'),
 (8, 8, 5, 'Muito satisfeito com o atendimento', '2025-01-08T17:30:00'),
-(9, 9, 4, 'Boa explicação, mas poderia ser mais rápido', '2025-01-09T18:30:00'),
-(10, 10, 2, 'Infelizmente o problema não foi resolvido', '2025-01-10T19:30:00'),
-(11, 11, 4, 'Atendente bom, mas faltou mais paciência', '2025-01-11T20:30:00'),
-(12, 12, 5, 'Atendimento ótimo, estou satisfeito', '2025-01-12T21:30:00'),
+(9, 9, 4, 'Boa explicaï¿½ï¿½o, mas poderia ser mais rï¿½pido', '2025-01-09T18:30:00'),
+(10, 10, 2, 'Infelizmente o problema nï¿½o foi resolvido', '2025-01-10T19:30:00'),
+(11, 11, 4, 'Atendente bom, mas faltou mais paciï¿½ncia', '2025-01-11T20:30:00'),
+(12, 12, 5, 'Atendimento ï¿½timo, estou satisfeito', '2025-01-12T21:30:00'),
 (13, 13, 5, 'Problema resolvido rapidamente, excelente!', '2025-01-13T22:30:00'),
-(14, 14, 3, 'Precisava de mais informações', '2025-01-14T23:30:00'),
+(14, 14, 3, 'Precisava de mais informaï¿½ï¿½es', '2025-01-14T23:30:00'),
 (15, 15, 4, 'Bom atendimento, mas pode melhorar', '2025-01-15T23:45:00');
 
 GO
@@ -207,25 +207,25 @@ CREATE TABLE ALERTA_SUSPENSAO (
 GO
 
 INSERT INTO ALERTA_SUSPENSAO (CLIENTE_ID, TIPO, DESCRICAO_ALERTA_SUSPENSAO, DATA_REGISTRO, SITUACAO, MOTIVO) VALUES
-(1, 'Suspensão temporária', 'Cliente com conta bloqueada por motivo de fraude.', '2025-01-01', 'Ativo', 'Fraude detectada no sistema'),
-(2, 'Suspensão permanente', 'Cliente teve sua conta encerrada devido à inadimplência.', '2025-01-02', 'Ativo', 'Inadimplência superior a 90 dias'),
-(3, 'Suspensão temporária', 'Conta suspensa por irregularidades na documentação.', '2025-01-03', 'Inativo', 'Documentação inconsistente'),
-(4, 'Suspensão permanente', 'Bloqueio permanente de conta por problemas de segurança.', '2025-01-04', 'Ativo', 'Problemas de segurança com login'),
-(5, 'Suspensão temporária', 'Bloqueio temporário de conta devido a transações suspeitas.', '2025-01-05', 'Inativo', 'Transações não autorizadas detectadas'),
-(6, 'Suspensão permanente', 'Conta do cliente foi suspensa após violação dos termos.', '2025-01-06', 'Ativo', 'Violação dos termos de uso'),
-(7, 'Suspensão temporária', 'Cliente teve acesso suspenso por tentativa de fraude.', '2025-01-07', 'Ativo', 'Tentativa de fraude registrada'),
-(8, 'Suspensão permanente', 'Conta encerrada por repetidas tentativas de fraude.', '2025-01-08', 'Inativo', 'Tentativas de fraude em múltiplas ocasiões'),
-(9, 'Suspensão temporária', 'Suspensão temporária para revisão de transações.', '2025-01-09', 'Ativo', 'Revisão de transações bancárias'),
-(10, 'Suspensão permanente', 'Suspensão de conta por não conformidade com as políticas do banco.', '2025-01-10', 'Ativo', 'Não conformidade com as políticas'),
-(11, 'Suspensão temporária', 'Cliente suspenso por erro de sistema.', '2025-01-11', 'Inativo', 'Erro no sistema bancário'),
-(12, 'Suspensão permanente', 'Conta permanentemente bloqueada devido a relatório de fraude.', '2025-01-12', 'Ativo', 'Fraude detectada'),
-(13, 'Suspensão temporária', 'Conta suspensa para investigação de transações fraudulentas.', '2025-01-13', 'Ativo', 'Investigação em andamento'),
-(14, 'Suspensão permanente', 'Conta encerrada devido a problemas com identidade do cliente.', '2025-01-14', 'Ativo', 'Problemas de identidade'),
-(15, 'Suspensão temporária', 'Suspensão temporária por falha no sistema de segurança.', '2025-01-15', 'Ativo', 'Falha no sistema de segurança');
+(1, 'Suspensï¿½o temporï¿½ria', 'Cliente com conta bloqueada por motivo de fraude.', '2025-01-01', 'Ativo', 'Fraude detectada no sistema'),
+(2, 'Suspensï¿½o permanente', 'Cliente teve sua conta encerrada devido ï¿½ inadimplï¿½ncia.', '2025-01-02', 'Ativo', 'Inadimplï¿½ncia superior a 90 dias'),
+(3, 'Suspensï¿½o temporï¿½ria', 'Conta suspensa por irregularidades na documentaï¿½ï¿½o.', '2025-01-03', 'Inativo', 'Documentaï¿½ï¿½o inconsistente'),
+(4, 'Suspensï¿½o permanente', 'Bloqueio permanente de conta por problemas de seguranï¿½a.', '2025-01-04', 'Ativo', 'Problemas de seguranï¿½a com login'),
+(5, 'Suspensï¿½o temporï¿½ria', 'Bloqueio temporï¿½rio de conta devido a transaï¿½ï¿½es suspeitas.', '2025-01-05', 'Inativo', 'Transaï¿½ï¿½es nï¿½o autorizadas detectadas'),
+(6, 'Suspensï¿½o permanente', 'Conta do cliente foi suspensa apï¿½s violaï¿½ï¿½o dos termos.', '2025-01-06', 'Ativo', 'Violaï¿½ï¿½o dos termos de uso'),
+(7, 'Suspensï¿½o temporï¿½ria', 'Cliente teve acesso suspenso por tentativa de fraude.', '2025-01-07', 'Ativo', 'Tentativa de fraude registrada'),
+(8, 'Suspensï¿½o permanente', 'Conta encerrada por repetidas tentativas de fraude.', '2025-01-08', 'Inativo', 'Tentativas de fraude em mï¿½ltiplas ocasiï¿½es'),
+(9, 'Suspensï¿½o temporï¿½ria', 'Suspensï¿½o temporï¿½ria para revisï¿½o de transaï¿½ï¿½es.', '2025-01-09', 'Ativo', 'Revisï¿½o de transaï¿½ï¿½es bancï¿½rias'),
+(10, 'Suspensï¿½o permanente', 'Suspensï¿½o de conta por nï¿½o conformidade com as polï¿½ticas do banco.', '2025-01-10', 'Ativo', 'Nï¿½o conformidade com as polï¿½ticas'),
+(11, 'Suspensï¿½o temporï¿½ria', 'Cliente suspenso por erro de sistema.', '2025-01-11', 'Inativo', 'Erro no sistema bancï¿½rio'),
+(12, 'Suspensï¿½o permanente', 'Conta permanentemente bloqueada devido a relatï¿½rio de fraude.', '2025-01-12', 'Ativo', 'Fraude detectada'),
+(13, 'Suspensï¿½o temporï¿½ria', 'Conta suspensa para investigaï¿½ï¿½o de transaï¿½ï¿½es fraudulentas.', '2025-01-13', 'Ativo', 'Investigaï¿½ï¿½o em andamento'),
+(14, 'Suspensï¿½o permanente', 'Conta encerrada devido a problemas com identidade do cliente.', '2025-01-14', 'Ativo', 'Problemas de identidade'),
+(15, 'Suspensï¿½o temporï¿½ria', 'Suspensï¿½o temporï¿½ria por falha no sistema de seguranï¿½a.', '2025-01-15', 'Ativo', 'Falha no sistema de seguranï¿½a');
 
 GO
 
---ÁREA DE OPERAÇÕES FINANCEIRAS DO BANCO INTER
+--ï¿½REA DE OPERAï¿½ï¿½ES FINANCEIRAS DO BANCO INTER
 
 CREATE TABLE TRANSACOES (
     TRANSACAO_ID INT IDENTITY(1,1) PRIMARY KEY,
@@ -239,21 +239,21 @@ CREATE TABLE TRANSACOES (
 GO
 
 INSERT INTO TRANSACOES (CONTA_ID, TIPO_TRANSACAO, VALOR, DATA_TRANSACAO) VALUES
-(1, 'Depósito', 1000.00, '2025-01-01'),
+(1, 'Depï¿½sito', 1000.00, '2025-01-01'),
 (2, 'Saque', 500.00, '2025-01-02'),
-(3, 'Transferência', 300.00, '2025-01-03'),
-(4, 'Depósito', 1500.00, '2025-01-04'),
+(3, 'Transferï¿½ncia', 300.00, '2025-01-03'),
+(4, 'Depï¿½sito', 1500.00, '2025-01-04'),
 (5, 'Saque', 700.00, '2025-01-05'),
-(6, 'Transferência', 1200.00, '2025-01-06'),
-(7, 'Depósito', 2000.00, '2025-01-07'),
+(6, 'Transferï¿½ncia', 1200.00, '2025-01-06'),
+(7, 'Depï¿½sito', 2000.00, '2025-01-07'),
 (8, 'Saque', 150.00, '2025-01-08'),
-(9, 'Transferência', 1800.00, '2025-01-09'),
-(10, 'Depósito', 2500.00, '2025-01-10'),
+(9, 'Transferï¿½ncia', 1800.00, '2025-01-09'),
+(10, 'Depï¿½sito', 2500.00, '2025-01-10'),
 (11, 'Saque', 800.00, '2025-01-11'),
-(12, 'Transferência', 600.00, '2025-01-12'),
-(13, 'Depósito', 950.00, '2025-01-13'),
+(12, 'Transferï¿½ncia', 600.00, '2025-01-12'),
+(13, 'Depï¿½sito', 950.00, '2025-01-13'),
 (14, 'Saque', 400.00, '2025-01-14'),
-(15, 'Transferência', 1500.00, '2025-01-15');
+(15, 'Transferï¿½ncia', 1500.00, '2025-01-15');
 
 GO
 
@@ -302,21 +302,21 @@ CREATE TABLE CARTOES(
 GO
 
 INSERT INTO CARTOES (CLIENTE_ID, TIPO_CARTAO, LIMITE, NUMERO_CARTAO, DATA_VENCIMENTO) VALUES
-(1, 'Crédito', 2000.00, '1234123412341234', '2025-02-01'),
-(2, 'Débito', 1500.00, '2345234523452345', '2025-02-02'),
-(3, 'Crédito', 2500.00, '3456345634563456', '2025-02-03'),
-(4, 'Débito', 3000.00, '4567456745674567', '2025-02-04'),
-(5, 'Crédito', 3500.00, '5678567856785678', '2025-02-05'),
-(6, 'Débito', 4000.00, '6789678967896789', '2025-02-06'),
-(7, 'Crédito', 4500.00, '7890789078907890', '2025-02-07'),
-(8, 'Débito', 5000.00, '8901890189018901', '2025-02-08'),
-(9, 'Crédito', 5500.00, '9012901290129012', '2025-02-09'),
-(10, 'Débito', 6000.00, '0123012301230123', '2025-02-10'),
-(11, 'Crédito', 6500.00, '1234123412341234', '2025-02-11'),
-(12, 'Débito', 7000.00, '2345234523452345', '2025-02-12'),
-(13, 'Crédito', 7500.00, '3456345634563456', '2025-02-13'),
-(14, 'Débito', 8000.00, '4567456745674567', '2025-02-14'),
-(15, 'Crédito', 8500.00, '5678567856785678', '2025-02-15');
+(1, 'Crï¿½dito', 2000.00, '1234123412341234', '2025-02-01'),
+(2, 'Dï¿½bito', 1500.00, '2345234523452345', '2025-02-02'),
+(3, 'Crï¿½dito', 2500.00, '3456345634563456', '2025-02-03'),
+(4, 'Dï¿½bito', 3000.00, '4567456745674567', '2025-02-04'),
+(5, 'Crï¿½dito', 3500.00, '5678567856785678', '2025-02-05'),
+(6, 'Dï¿½bito', 4000.00, '6789678967896789', '2025-02-06'),
+(7, 'Crï¿½dito', 4500.00, '7890789078907890', '2025-02-07'),
+(8, 'Dï¿½bito', 5000.00, '8901890189018901', '2025-02-08'),
+(9, 'Crï¿½dito', 5500.00, '9012901290129012', '2025-02-09'),
+(10, 'Dï¿½bito', 6000.00, '0123012301230123', '2025-02-10'),
+(11, 'Crï¿½dito', 6500.00, '1234123412341234', '2025-02-11'),
+(12, 'Dï¿½bito', 7000.00, '2345234523452345', '2025-02-12'),
+(13, 'Crï¿½dito', 7500.00, '3456345634563456', '2025-02-13'),
+(14, 'Dï¿½bito', 8000.00, '4567456745674567', '2025-02-14'),
+(15, 'Crï¿½dito', 8500.00, '5678567856785678', '2025-02-15');
 
 GO
 
@@ -336,17 +336,17 @@ GO
 
 INSERT INTO INVESTIMENTOS (CLIENTE_ID, TIPO_INVESTIMENTO, VALOR_INVESTIDO, DATA_INVESTIMENTO, TAXA_RENDIMENTO, DATA_VENCIMENTO, RENTABILIDADE_ANUAL) VALUES
 (1, 'CDB', 5000.00, '2025-01-01', 6.50, '2026-01-01', 7.00),
-(2, 'Poupança', 2000.00, '2025-01-02', 2.00, '2026-01-02', 3.00),
+(2, 'Poupanï¿½a', 2000.00, '2025-01-02', 2.00, '2026-01-02', 3.00),
 (3, 'Fundo de Investimento', 3000.00, '2025-01-03', 7.50, '2026-01-03', 8.00),
 (4, 'Tesouro Direto', 4000.00, '2025-01-04', 5.00, '2026-01-04', 6.00),
 (5, 'CDB', 2500.00, '2025-01-05', 6.00, '2026-01-05', 6.50),
-(6, 'Ações', 7000.00, '2025-01-06', 8.00, '2026-01-06', 9.00),
-(7, 'Poupança', 1500.00, '2025-01-07', 2.50, '2026-01-07', 3.50),
+(6, 'Aï¿½ï¿½es', 7000.00, '2025-01-06', 8.00, '2026-01-06', 9.00),
+(7, 'Poupanï¿½a', 1500.00, '2025-01-07', 2.50, '2026-01-07', 3.50),
 (8, 'Fundo de Investimento', 5000.00, '2025-01-08', 7.00, '2026-01-08', 7.50),
 (9, 'Tesouro Direto', 6000.00, '2025-01-09', 5.50, '2026-01-09', 6.50),
 (10, 'CDB', 8000.00, '2025-01-10', 6.25, '2026-01-10', 6.75),
-(11, 'Ações', 10000.00, '2025-01-11', 9.00, '2026-01-11', 10.00),
-(12, 'Poupança', 2000.00, '2025-01-12', 3.00, '2026-01-12', 3.50),
+(11, 'Aï¿½ï¿½es', 10000.00, '2025-01-11', 9.00, '2026-01-11', 10.00),
+(12, 'Poupanï¿½a', 2000.00, '2025-01-12', 3.00, '2026-01-12', 3.50),
 (13, 'Fundo de Investimento', 4000.00, '2025-01-13', 7.00, '2026-01-13', 7.50),
 (14, 'Tesouro Direto', 3500.00, '2025-01-14', 5.75, '2026-01-14', 6.25),
 (15, 'CDB', 6000.00, '2025-01-15', 6.25, '2026-01-15', 6.75);
@@ -384,7 +384,7 @@ INSERT INTO FATURAS (CARTAO_ID, DATA_INICIO, VENCIMENTO_FATURA, VALOR_FATURA, JU
 
 GO
 
---ÁREA DE RECURSOS HUMANOS DO BANCO INTER
+--ï¿½REA DE RECURSOS HUMANOS DO BANCO INTER
 
 GO
 
@@ -398,21 +398,21 @@ CREATE TABLE SETORES (
 GO
 
 INSERT INTO SETORES (NOME_SETOR, DESCRICAO, NOME_GERENTE) VALUES
-('TI', 'Tecnologia da Informação', 'Carlos Souza'),
-('Financeiro', 'Gestão financeira', 'Maria Oliveira'),
+('TI', 'Tecnologia da Informaï¿½ï¿½o', 'Carlos Souza'),
+('Financeiro', 'Gestï¿½o financeira', 'Maria Oliveira'),
 ('Comercial', 'Vendas e Marketing', 'Lucas Silva'),
 ('RH', 'Recursos Humanos', 'Fernanda Costa'),
 ('TI', 'Suporte e Desenvolvimento', 'Roberto Lima'),
-('Financeiro', 'Gestão financeira e contábil', 'Tatiane Alves'),
+('Financeiro', 'Gestï¿½o financeira e contï¿½bil', 'Tatiane Alves'),
 ('Comercial', 'Vendas e atendimento ao cliente', 'Marcelo Pereira'),
-('RH', 'Gestão de pessoal', 'Gabriela Rocha'),
+('RH', 'Gestï¿½o de pessoal', 'Gabriela Rocha'),
 ('Financeiro', 'Planejamento financeiro', 'Rodrigo Fernandes'),
 ('TI', 'Desenvolvimento de software', 'Bruna Santos'),
-('Comercial', 'Relacionamento com clientes', 'Vinícius Almeida'),
-('Financeiro', 'Análise financeira e orçamentária', 'Simone Costa'),
+('Comercial', 'Relacionamento com clientes', 'Vinï¿½cius Almeida'),
+('Financeiro', 'Anï¿½lise financeira e orï¿½amentï¿½ria', 'Simone Costa'),
 ('Comercial', 'Vendas corporativas', 'Paula Martins'),
-('TI', 'Suporte técnico e infraestrutura', 'André Ribeiro'),
-('RH', 'Gestão de recursos humanos', 'Renata Alves');
+('TI', 'Suporte tï¿½cnico e infraestrutura', 'Andrï¿½ Ribeiro'),
+('RH', 'Gestï¿½o de recursos humanos', 'Renata Alves');
 
 GO
 
@@ -420,27 +420,27 @@ CREATE TABLE CARGOS (
 	CARGO_ID INT IDENTITY (1,1) PRIMARY KEY,
     NOME_CARGO VARCHAR (50) NOT NULL,
     SALARIO_BASE DECIMAL (18,2),
-    NÍVEL_PROFISSIONAL VARCHAR (50) NOT NULL
+    Nï¿½VEL_PROFISSIONAL VARCHAR (50) NOT NULL
 );
 
 GO
 
-INSERT INTO CARGOS (NOME_CARGO, SALARIO_BASE, NÍVEL_PROFISSIONAL) VALUES
-('Analista de TI', 5000.00, 'Júnior'),
-('Gerente Financeiro', 8000.00, 'Sênior'),
+INSERT INTO CARGOS (NOME_CARGO, SALARIO_BASE, Nï¿½VEL_PROFISSIONAL) VALUES
+('Analista de TI', 5000.00, 'Jï¿½nior'),
+('Gerente Financeiro', 8000.00, 'Sï¿½nior'),
 ('Executivo de Vendas', 7000.00, 'Pleno'),
-('Analista de Recursos Humanos', 4500.00, 'Júnior'),
+('Analista de Recursos Humanos', 4500.00, 'Jï¿½nior'),
 ('Desenvolvedor de Software', 6000.00, 'Pleno'),
-('Coordenador de Comercial', 7500.00, 'Sênior'),
-('Assistente de TI', 3500.00, 'Júnior'),
+('Coordenador de Comercial', 7500.00, 'Sï¿½nior'),
+('Assistente de TI', 3500.00, 'Jï¿½nior'),
 ('Analista de Marketing', 6000.00, 'Pleno'),
-('Supervisor de TI', 8000.00, 'Sênior'),
+('Supervisor de TI', 8000.00, 'Sï¿½nior'),
 ('Consultor Financeiro', 7000.00, 'Pleno'),
-('Coordenador de Recursos Humanos', 7500.00, 'Sênior'),
-('Assistente de Vendas', 3000.00, 'Júnior'),
-('Especialista em Segurança', 9000.00, 'Pleno'),
-('Gestor de TI', 10000.00, 'Sênior'),
-('Supervisor Financeiro', 8500.00, 'Sênior');
+('Coordenador de Recursos Humanos', 7500.00, 'Sï¿½nior'),
+('Assistente de Vendas', 3000.00, 'Jï¿½nior'),
+('Especialista em Seguranï¿½a', 9000.00, 'Pleno'),
+('Gestor de TI', 10000.00, 'Sï¿½nior'),
+('Supervisor Financeiro', 8500.00, 'Sï¿½nior');
 
 GO
 
@@ -449,7 +449,7 @@ CREATE TABLE FUNCIONARIOS (
     NOME_FUNCIONARIO VARCHAR (50) NOT NULL,
     CPF_FUNCIONARIO CHAR (11) NOT NULL UNIQUE,
     EMAIL_FUNCIONARIO VARCHAR (50),
-    ENDEREÇO_FUNCIONARIO VARCHAR (50),
+    ENDEREï¿½O_FUNCIONARIO VARCHAR (50),
 	CARGO_ID INT,
     SETOR_ID INT NOT NULL,
     DATA_ADMISSIONAL DATE NOT NULL,
@@ -460,7 +460,7 @@ CREATE TABLE FUNCIONARIOS (
 
 GO
 
-INSERT INTO FUNCIONARIOS (NOME_FUNCIONARIO, CPF_FUNCIONARIO, EMAIL_FUNCIONARIO, ENDEREÇO_FUNCIONARIO, CARGO_ID, SETOR_ID, DATA_ADMISSIONAL, SALARIO) VALUES
+INSERT INTO FUNCIONARIOS (NOME_FUNCIONARIO, CPF_FUNCIONARIO, EMAIL_FUNCIONARIO, ENDEREï¿½O_FUNCIONARIO, CARGO_ID, SETOR_ID, DATA_ADMISSIONAL, SALARIO) VALUES
 ('Carlos Souza', '12345678901', 'carlos.souza@empresa.com', 'Rua A, 123', 1, 1, '2020-01-10', 5000.00),
 ('Maria Oliveira', '23456789012', 'maria.oliveira@empresa.com', 'Rua B, 456', 2, 2, '2021-02-15', 4000.00),
 ('Lucas Silva', '34567890123', 'lucas.silva@empresa.com', 'Rua C, 789', 3, 3, '2019-04-20', 5500.00),
@@ -471,10 +471,10 @@ INSERT INTO FUNCIONARIOS (NOME_FUNCIONARIO, CPF_FUNCIONARIO, EMAIL_FUNCIONARIO, 
 ('Gabriela Rocha', '89012345678', 'gabriela.rocha@empresa.com', 'Rua H, 505', 8, 8, '2020-05-17', 4700.00),
 ('Rodrigo Fernandes', '90123456789', 'rodrigo.fernandes@empresa.com', 'Rua I, 606', 9, 9, '2019-09-10', 5100.00),
 ('Bruna Santos', '12345098765', 'bruna.santos@empresa.com', 'Rua J, 707', 10, 10, '2021-10-12', 5500.00),
-('Vinícius Almeida', '23456123456', 'vinicius.almeida@empresa.com', 'Rua K, 808', 11, 11, '2020-12-01', 5400.00),
+('Vinï¿½cius Almeida', '23456123456', 'vinicius.almeida@empresa.com', 'Rua K, 808', 11, 11, '2020-12-01', 5400.00),
 ('Simone Costa', '34567234567', 'simone.costa@empresa.com', 'Rua L, 909', 12, 12, '2021-11-14', 4600.00),
 ('Paula Martins', '45678345678', 'paula.martins@empresa.com', 'Rua M, 110', 13, 13, '2022-01-19', 4900.00),
-('André Ribeiro', '56789456789', 'andre.ribeiro@empresa.com', 'Rua N, 121', 14, 14, '2022-02-20', 6000.00),
+('Andrï¿½ Ribeiro', '56789456789', 'andre.ribeiro@empresa.com', 'Rua N, 121', 14, 14, '2022-02-20', 6000.00),
 ('Renata Alves', '67890567890', 'renata.alves@empresa.com', 'Rua O, 132', 15, 15, '2020-07-25', 4500.00);
 
 GO
@@ -549,6 +549,9 @@ SELECT *
 FROM ATENDENTE
 
 SELECT *
+FROM ATENDIMENTOS
+
+SELECT *
 FROM CARGOS
 
 SELECT *
@@ -559,6 +562,9 @@ FROM CLIENTES
 
 SELECT *
 FROM CONTAS
+
+SELECT *
+FROM FEEDBACK
 
 SELECT *
 FROM CONTATOS
