@@ -642,57 +642,52 @@ Este trabalho visa não apenas o entendimento e aplicação de conceitos de mode
     (15, '2025-04-05', '2025-04-15', 10, 1000.00);
     
     SELECT *
-    FROM ALERTA_SUSPENSAO
+    FROM Clientes
+    
+    SELECT *
+    FROM Contas
+
+    SELECT *
+    FROM CONTATOS
     
     SELECT *
     FROM ATENDENTE
-
+    
     SELECT *
     FROM ATENDIMENTOS
     
     SELECT *
-    FROM CARGOS
-    
-    SELECT *
-    FROM CARTOES
-    
-    SELECT *
-    FROM CLIENTES
-    
-    SELECT *
-    FROM CONTAS
-
-    SELECT *
     FROM FEEDBACK
     
     SELECT *
-    FROM CONTATOS
+    FROM ALERTA_SUSPENSAO
+
+    SELECT *
+    FROM TRANSACOES
     
     SELECT *
     FROM EMPRESTIMO
     
     SELECT *
-    FROM FATURAS
-    
-    SELECT *
-    FROM FERIAS
-    
-    SELECT *
-    FROM FUNCIONARIOS
+    FROM CARTOES
     
     SELECT *
     FROM INVESTIMENTOS
     
     SELECT *
-    FROM SALARIO_FUNCIONARIOS
+    FROM FATURAS
     
     SELECT *
     FROM SETORES
     
     SELECT *
-    FROM TRANSACOES
-
-
-
-
-
+    FROM CARGOS
+    
+    SELECT *
+    FROM FUNCIONARIOS
+    
+    SELECT *
+    FROM SALARIO_FUNCIONARIOS
+    
+    SELECT *
+    FROM FERIAS
