@@ -14,5 +14,6 @@ public class B8 {
         } else{
             System.out.println("Não é vogal");
         }
+        sc.close();
     }
 }

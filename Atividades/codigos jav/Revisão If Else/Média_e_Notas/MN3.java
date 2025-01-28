@@ -30,5 +30,6 @@ public class MN3 {
         } else {
             System.out.println("maior nota é " + nota3);
         }
+        sc.close();
     }
 }

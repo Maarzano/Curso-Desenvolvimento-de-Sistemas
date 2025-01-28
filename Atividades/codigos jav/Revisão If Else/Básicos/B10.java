@@ -14,5 +14,6 @@ public class B10 {
         } else{
             System.out.println("dentro do intervalo de (100 a 200)");
         }
+        sc.close();
     }
 }

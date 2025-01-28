@@ -15,5 +15,6 @@ public class B1 {
         } else{
             System.out.println("negativo!");
         }
+        sc.close();
     }
 }

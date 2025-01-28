@@ -13,5 +13,6 @@ public class B6 {
         } else {
             System.out.println("É bissexto");
         }
+        sc.close();
     }
 }

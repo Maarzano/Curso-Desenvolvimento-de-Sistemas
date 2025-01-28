@@ -15,5 +15,6 @@ public class B2 {
         } else{
             System.out.println("ímpar!");
         }
+        sc.close();
     }
 }

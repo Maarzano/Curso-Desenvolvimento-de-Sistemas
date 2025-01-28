@@ -16,6 +16,6 @@ public class B7 {
         }
 
 
-
+        sc.close();
     }
 }

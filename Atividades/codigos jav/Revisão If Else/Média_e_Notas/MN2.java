@@ -21,5 +21,6 @@ public class MN2 {
         } else {
             System.out.println("Reprovado");
         }
+        sc.close();
     }
 }

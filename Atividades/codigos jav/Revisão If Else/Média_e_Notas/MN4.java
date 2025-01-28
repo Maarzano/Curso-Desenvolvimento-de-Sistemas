@@ -25,6 +25,9 @@ public class MN4 {
             System.out.println("Tirou nota máximo na primeiro nota");
         } else if (nota2 ==10) {
             System.out.println("tirou nota máxima na segunda nota");
+        } else if (nota1 == 10 && nota2 == 10){
+            System.out.println("Tirou nota máxima nas duas notas");
         }
+        sc.close();
     }
 }

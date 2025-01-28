@@ -18,5 +18,6 @@ public class B3 {
         } else {
             System.out.println("os número são iguais");
         }
+        sc.close();
     }
 }

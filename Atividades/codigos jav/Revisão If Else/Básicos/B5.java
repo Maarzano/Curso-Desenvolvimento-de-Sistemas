@@ -20,5 +20,6 @@ public class B5 {
         } else{
             System.out.println("Maior número é: " + num3);
         }
+        sc.close();
     }
 }

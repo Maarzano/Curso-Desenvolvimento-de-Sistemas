@@ -14,5 +14,6 @@ public class B9 {
         } else {
             System.out.println("está dentro do intervalo (10 a 50)");
         }
+        sc.close();
     }
 }
