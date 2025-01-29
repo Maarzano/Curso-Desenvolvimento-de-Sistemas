@@ -10,10 +10,12 @@ public class OM5 {
         System.out.println("Digite um número: ");
         int num = sc.nextInt();
 
-        if (num * num == (num^2)) {
-            System.out.println("O número é um quadrado perfeito");
+        double raizQuadrada = Math.sqrt(num);
+
+        if (raizQuadrada == (int) raizQuadrada) {
+            System.out.println(num + " é um quadrado perfeito.");
         } else {
-            System.out.println("O número não é um quadrado perfeito");
+            System.out.println(num + " não é um quadrado perfeito.");
         }
         sc.close();
     }
