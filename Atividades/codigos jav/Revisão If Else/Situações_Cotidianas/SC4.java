@@ -18,5 +18,6 @@ public class SC4 {
         }else {
             System.out.println("não pode doar samgue");
         }
+        sc.close();
     }
 }

@@ -1,5 +1,5 @@
 //Receba dois números e indique se um é divisível pelo outro.
-package operações_Matemáticas;
+package Operações_Matemáticas;
 
 import java.util.Scanner;
 

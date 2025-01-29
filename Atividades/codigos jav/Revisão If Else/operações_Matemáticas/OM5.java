@@ -1,5 +1,5 @@
 //Receba um número e indique se ele é um quadrado perfeito.
-package operações_Matemáticas;
+package Operações_Matemáticas;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package operações_Matemáticas;
+package Operações_Matemáticas;
 //Receba três números e verifique se eles podem formar um triângulo.
 import java.util.Scanner;
 

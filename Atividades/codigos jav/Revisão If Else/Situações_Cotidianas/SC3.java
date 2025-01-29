@@ -20,5 +20,6 @@ public class SC3 {
         } else {
             System.out.printf("Ok tchau!");
         }
+        sc.close();
     }
 }
