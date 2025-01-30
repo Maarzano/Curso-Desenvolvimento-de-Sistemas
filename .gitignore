@@ -1,5 +1,9 @@
 .idea
 .idea/
 .vscode
+.vscode
 out/
 out
+.iml
+output/
+output
