@@ -10,5 +10,6 @@ public class Att9 {
         for (int i = 0; i <= 10;i++){
             System.out.println(num + "x" + i + " = "  + i * num);
         }
+        sc.close();
     }
 }
