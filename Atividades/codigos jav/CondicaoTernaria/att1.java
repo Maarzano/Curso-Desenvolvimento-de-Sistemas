@@ -9,5 +9,7 @@ public class att1 {
 
         System.out.println(ehParOuImpar);
 
+        sc.close();
+
     }
 }

@@ -7,5 +7,6 @@ public class att2 {
         int idade = sc.nextInt();
         String ehMaior = (idade >= 18) ? "Maior" : "Menor";
         System.out.println(ehMaior);
+        sc.close();
     }
 }
