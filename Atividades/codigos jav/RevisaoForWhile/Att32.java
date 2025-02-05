@@ -12,5 +12,6 @@ public class Att32 {
             } else break;
         }while (true);
         System.out.println(soma);
+        sc.close();
     }
 }

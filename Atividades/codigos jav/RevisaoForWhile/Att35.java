@@ -11,5 +11,6 @@ public class Att35 {
             System.out.println(num + " x " + i + " = " + num*i);
             i++;
         }while(i <=10);
+        sc.close();
     }
 }

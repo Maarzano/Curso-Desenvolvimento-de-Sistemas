@@ -16,5 +16,6 @@ public class Att31 {
         for (var recebe : Lista){
             System.out.println(recebe);
         }
+        sc.close();
     }
 }
