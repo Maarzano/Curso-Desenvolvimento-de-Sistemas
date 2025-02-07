@@ -1,5 +1,5 @@
 package Program1;
-import Program1.Models.*;
+import Program1.Models.Pessoa;
 
 import java.util.Scanner;
 
