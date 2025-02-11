@@ -14,16 +14,4 @@ public class Pessoa {
     public void Apresentar(){
         System.out.println("Olá " + nome + " você tem " + idade + " de idade");
     }
-
-
-
-
-
-
-
-
-
-
-
-
 }

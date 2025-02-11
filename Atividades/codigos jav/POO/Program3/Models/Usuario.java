@@ -27,7 +27,6 @@ public class Usuario {
 
     public void removerLivroEmprestado(Livro livro) {
         livrosEmprestados.remove(livro);
-        Biblioteca biblioteca = new Biblioteca();
     }
 
     public boolean possuiLivro(Livro livro){
