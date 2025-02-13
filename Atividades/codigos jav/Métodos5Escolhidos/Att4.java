@@ -13,7 +13,7 @@ public class Att4 {
         int numeroAleatorio = gerador.nextInt(10) + 1;
 
         System.out.println("Chute um número inteiro");
-        int chute = 0;
+        int chute;
 
         do {
             chute = sc.nextInt();

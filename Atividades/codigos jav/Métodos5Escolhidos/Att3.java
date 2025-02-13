@@ -20,20 +20,6 @@ public class Att3 {
 
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public static double maiorNota(double num1, double num2, double num3){
         double result;
         if(num1 > num2 && num2 > num3){
