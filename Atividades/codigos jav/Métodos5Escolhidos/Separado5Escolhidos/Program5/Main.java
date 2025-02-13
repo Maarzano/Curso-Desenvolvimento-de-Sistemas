@@ -14,6 +14,7 @@ public class Main {
 
         System.out.print("Escreva o 2° número: ");
         int num2 = sc.nextInt();
+        sc.close();
 
         System.out.println((veri.SomaMaiorQue100(num1, num2)) ? "Maior que 100!!" : "Menor ou igual a 100");
 

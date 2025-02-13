@@ -17,6 +17,7 @@ public class Main {
 
         System.out.println("Escreva sua 3° nota");
         double nota3 = sc.nextDouble();
+        sc.close();
 
         calculador.maiorMenor(nota1, nota2, nota3);
 

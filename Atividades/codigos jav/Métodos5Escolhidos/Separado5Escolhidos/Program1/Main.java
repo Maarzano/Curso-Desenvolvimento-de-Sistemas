@@ -11,6 +11,7 @@ public class Main {
 
         System.out.print("Digite a senha: ");
         String snha = sc.nextLine();
+        sc.close();
 
         System.out.println(senha.VerificarSenha(snha));
 

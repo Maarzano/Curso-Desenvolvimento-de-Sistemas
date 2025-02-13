@@ -9,6 +9,7 @@ public class Att1 {
         System.out.print("Digite a senha: ");
         String senha = sc.nextLine();
         System.out.println(VerificarSenha(senha));
+        sc.close();
 
     }
     public static boolean VerificarSenha(String senha){

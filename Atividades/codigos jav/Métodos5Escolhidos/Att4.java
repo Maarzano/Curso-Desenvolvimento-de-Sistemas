@@ -18,6 +18,7 @@ public class Att4 {
         do {
             chute = sc.nextInt();
         } while (!acertouNumero(chute, numeroAleatorio));
+        sc.close();
     }
 
     public static boolean acertouNumero(int chute, int num){

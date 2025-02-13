@@ -15,6 +15,7 @@ public class Att3 {
 
         System.out.println("Escreva sua 3° nota");
         double nota3 = sc.nextDouble();
+        sc.close();
 
         maiorMenor(nota1, nota2, nota3);
 

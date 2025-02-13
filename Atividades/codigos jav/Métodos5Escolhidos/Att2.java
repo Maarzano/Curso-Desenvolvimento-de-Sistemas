@@ -8,6 +8,7 @@ public class Att2 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Escreva uma palavra");
         String palavra = sc.nextLine();
+        sc.close();
 
         VerificarComecaA(palavra);
 

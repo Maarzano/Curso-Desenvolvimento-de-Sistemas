@@ -13,6 +13,7 @@ public class Main {
 
         int numeroAleatorio = gerador.nextInt(1, 10);
         int numeroCutado;
+        sc.close();
 
 
         System.out.println("Chute um número inteiro");

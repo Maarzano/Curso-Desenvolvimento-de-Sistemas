@@ -12,6 +12,7 @@ public class Att5 {
 
         System.out.println("Escreva o 2° número");
         int num2 = sc.nextInt();
+        sc.close();
 
         SomaEhMaiorQue100(num1, num2);
 

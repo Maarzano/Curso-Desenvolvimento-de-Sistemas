@@ -11,6 +11,7 @@ public class Main {
 
         System.out.println("Escreva uma palavra");
         String palavra = sc.nextLine();
+        sc.close();
 
         System.out.println(ver.ComecaCom(palavra, "a"));
     }
