@@ -22,7 +22,7 @@ public class Biblioteca {
     }
 
     public void consultarLivrosDisponíveis(){
-        System.out.println("\n📚 Livros Disponíveis:");
+        System.out.println("\n Livros Disponíveis:");
         for (Livro livro : livros){
             if (livro.isDisponivel()){
                 System.out.println(livro);

@@ -25,9 +25,10 @@ public class Main {
             System.out.println("1. Registrar Usuário");
             System.out.println("2. Adicionar Livro");
             System.out.println("3. Consultar Livros Disponíveis");
-            System.out.println("4. Realizar Empréstimo");
-            System.out.println("5. Devolver Livro");
-            System.out.println("6. Sair");
+            System.out.println("4. Consultar Livros Emprestados");
+            System.out.println("5. Realizar Empréstimo");
+            System.out.println("6. Devolver Livro");
+            System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
             int opcao = scanner.nextInt();
             scanner.nextLine();
@@ -49,8 +50,18 @@ public class Main {
                     String tituloLivro = scanner.nextLine();
                     System.out.print("Autor do livro: ");
                     String autorLivro = scanner.nextLine();
-                    Livro livro = new Livro(tituloLivro, autorLivro);
-                    biblioteca.adicionarLivro(livro);
+                    System.out.print("É um livro infantil? (s/n): ");
+                    String isInfantil = scanner.nextLine();
+                    if (isInfantil.equalsIgnoreCase("s")) {
+                        System.out.print("Faixa etária recomendada: ");
+                        int faixaEtaria = scanner.nextInt();
+                        scanner.nextLine();
+                        LivroInfantil livroInfantil = new LivroInfantil(tituloLivro, autorLivro, faixaEtaria);
+                        biblioteca.adicionarLivro(livroInfantil);
+                    } else {
+                        Livro livro = new Livro(tituloLivro, autorLivro);
+                        biblioteca.adicionarLivro(livro);
+                    }
                     System.out.println("Livro adicionado com sucesso!");
                     break;
 
@@ -59,6 +70,10 @@ public class Main {
                     break;
 
                 case 4:
+                    biblioteca.consultarLivrosEmprestados();
+                    break;
+
+                case 5:
                     System.out.print("Nome do usuário: ");
                     String nomeEmprestimo = scanner.nextLine();
                     System.out.print("Título do livro: ");
@@ -72,13 +87,21 @@ public class Main {
                             .findFirst()
                             .orElse(null);
                     if (userEmprestimo != null && livroEmprestimo != null) {
-                            emprestimo.realizarEmprestimo(livroEmprestimo, userEmprestimo);
+                        try {
+                            if (livroEmprestimo instanceof LivroInfantil) {
+                                emprestimo.realizarEmprestimo((LivroInfantil) livroEmprestimo, userEmprestimo);
+                            } else {
+                                emprestimo.realizarEmprestimo(livroEmprestimo, userEmprestimo);
+                            }
+                        } catch (LivroIndisponivelException | FaixaEtariaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
                     } else {
                         System.out.println("Usuário ou livro não encontrado.");
                     }
                     break;
 
-                case 5:
+                case 6:
                     System.out.print("Título do livro a ser devolvido: ");
                     String tituloDevolucao = scanner.nextLine();
                     Livro livroDevolucao = biblioteca.getLivros().stream()
@@ -92,7 +115,7 @@ public class Main {
                     }
                     break;
 
-                case 6:
+                case 7:
                     System.out.println("Saindo...");
                     scanner.close();
                     return;

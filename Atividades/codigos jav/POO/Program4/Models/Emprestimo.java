@@ -7,7 +7,7 @@ public class Emprestimo {
             throw new LivroIndisponivelException("Livro '" + livro.getTitulo() + "' está indisponível.");
         }
         user.emprestarLivro(livro);
-        livro.setDiponivel(false);
+        livro.setDisponivel(false);
         System.out.println("Empréstimo realizado com sucesso para " + user.getNome());
     }
 
@@ -17,15 +17,14 @@ public class Emprestimo {
         }
         if (user.getIdade() >= livro.getFaixaEtaria()){
             user.emprestarLivro(livro);
-            livro.setDiponivel(false);
+            livro.setDisponivel(false);
         } else {
             throw new FaixaEtariaInvalidaException("Usuário " + user.getNome() + " não tem idade suficiente");
         }
     }
 
-    @Override
     public void devolverLivro(Livro livro){
-        livro.setDiponivel(true);
+        livro.setDisponivel(true);
         System.out.println("Livro '" + livro.getTitulo() + "' foi devolvido.");
     }
 }
