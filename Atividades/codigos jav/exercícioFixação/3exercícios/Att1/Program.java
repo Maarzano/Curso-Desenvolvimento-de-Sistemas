@@ -16,6 +16,6 @@ public class Program {
         System.out.println("Permetro: " + retangulo.Perimeter());
         System.out.println("Diagonal: " + retangulo.Diagonal());
 
-        
+        sc.close();
     }
 }

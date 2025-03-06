@@ -14,6 +14,8 @@ public class Program {
         Estudante student = new Estudante(nome, nota1, nota2, nota3);
 
         System.out.println(student);
+
+        sc.close();
         
     }
 }

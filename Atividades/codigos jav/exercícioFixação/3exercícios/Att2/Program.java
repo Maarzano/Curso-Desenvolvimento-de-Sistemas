@@ -26,5 +26,7 @@ public class Program {
 
         System.out.println(empregado);
 
+        sc.close();
+
     }
 }
