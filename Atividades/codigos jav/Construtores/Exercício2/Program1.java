@@ -1,4 +1,5 @@
-public class Main {
+import Models.*;
+public class Program1 {
     public static void main(String[] args) {
       
         Pessoa pessoa1 = new Pessoa("João", 25);
