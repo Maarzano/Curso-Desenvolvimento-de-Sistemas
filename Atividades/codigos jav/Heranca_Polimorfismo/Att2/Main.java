@@ -4,7 +4,6 @@ import Att2.Models.Bicicleta;
 import Att2.Models.Carro;
 import Att2.Models.Veiculo;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Main {

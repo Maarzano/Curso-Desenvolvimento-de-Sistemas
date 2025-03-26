@@ -2,14 +2,14 @@ package Att3.Models;
 
 public class Funcionario {
     protected String nome;
-    protected  double salário;
+    protected  double salárioBase;
 
     public Funcionario(String nome, double salário){
         this.nome = nome;
-        this.salário = salário;
+        this.salárioBase = salário;
     }
 
     public double CalcularSalario(){
-        return this.salário;
+        return this.salárioBase;
     }
 }

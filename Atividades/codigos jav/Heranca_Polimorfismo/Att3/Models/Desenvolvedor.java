@@ -6,6 +6,6 @@ public class Desenvolvedor extends Funcionario{
     }
     @Override
     public double CalcularSalario(){
-        return salário += salário * 0.1;
+        return salárioBase + (salárioBase * 0.1);
     }
 }

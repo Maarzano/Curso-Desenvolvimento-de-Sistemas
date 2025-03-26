@@ -6,6 +6,6 @@ public class Gerente extends Funcionario {
     }
     @Override
     public double CalcularSalario(){
-        return salário += 500;
+        return salárioBase += 500;
     }
 }
