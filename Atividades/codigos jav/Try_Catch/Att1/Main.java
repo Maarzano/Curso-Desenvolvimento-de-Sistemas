@@ -23,6 +23,8 @@ public class Main {
             result = numero1 / numero2;
         }catch (ArithmeticException ex){
             System.out.println(ex + " você não pode dividir por 0");
+        } finally {
+            sc.close();
         }
         System.out.println(numero1 + " divido por " + numero2 + " é " + result);
 

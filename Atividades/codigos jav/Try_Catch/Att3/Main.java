@@ -10,10 +10,12 @@ public class Main {
         int numero = sc.nextInt();
 
         try{
-            var result = Math.sqrt(numero);
+            var result = Math.sqrt(numero); // isso não gera uma exceção, pelo menos não está gerando
         }catch(Exception ex){
             deu = false;
             System.out.println(ex + " não pode negativo");
+        } finally {
+            sc.close();
         }
         System.out.println((deu) ? "deu " + Math.sqrt(numero) : "num deu" );
     }

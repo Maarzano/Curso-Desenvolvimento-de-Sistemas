@@ -14,6 +14,8 @@ public class Main {
         } catch (NumberFormatException ex){
             numcorreto = false;
             System.out.println(ex + "número incorreto");
+        } finally {
+            sc.close();
         }
             System.out.println("Seu número é " + ((numcorreto) ? " válido" : " ínvalido"));
     }

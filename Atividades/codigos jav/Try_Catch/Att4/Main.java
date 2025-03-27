@@ -18,6 +18,8 @@ public class Main {
             num2 = sc.nextInt();
         } catch (Exception ex){
             System.out.println(ex + " Não inseriu um número!");
+        } finally{
+            sc.close();
         }
         System.out.println(num1 + num2);
     }
