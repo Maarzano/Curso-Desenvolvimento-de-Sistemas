@@ -18,7 +18,7 @@
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form>
+        <form id="loginForm">
             <label for="email">Email</label>
             <input type="email" id="email" required>
 
@@ -30,6 +30,32 @@
         <div class="register-link">
             <span>Não tem conta? <a href="cadastro.html">Cadastre-se</a></span>
         </div>
+        <div id="mensagemLogin" style="margin-top:16px;text-align:center;"></div>
     </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value.trim().toLowerCase();
+            const senha = document.getElementById('senha').value;
+            const mensagem = document.getElementById('mensagemLogin');
+            mensagem.textContent = '';
+            try {
+                const resp = await fetch('http://localhost:8080/funcionarios');
+                if (!resp.ok) throw new Error('Erro ao buscar usuários');
+                const funcionarios = await resp.json();
+                const usuario = funcionarios.find(f => f.email && f.email.toLowerCase() === email && f.senha === senha);
+                if (usuario) {
+                    mensagem.style.color = 'green';
+                    mensagem.textContent = 'Login realizado com sucesso!';
+                } else {
+                    mensagem.style.color = 'red';
+                    mensagem.textContent = 'Email ou senha inválidos.';
+                }
+            } catch (err) {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao conectar com o servidor.';
+            }
+        });
+    </script>
 </body>
 </html>

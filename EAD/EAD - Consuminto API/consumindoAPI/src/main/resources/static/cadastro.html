@@ -54,6 +54,7 @@
         <div class="login-link">
             <span>Já tem conta? <a href="index.html">Entrar</a></span>
         </div>
+        <div id="mensagemCadastro" style="margin-top:16px;text-align:center;"></div>
     </div>
     <script>
         const cepInput = document.getElementById('cep');
@@ -104,6 +105,53 @@
                 cidadeInput.value = '';
                 estadoInput.value = '';
             }
+        });
+
+        document.getElementById('cadastroForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const mensagem = document.getElementById('mensagemCadastro');
+            mensagem.textContent = '';
+            mensagem.style.color = '';
+            const btn = this.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            const funcionario = {
+                nome: document.getElementById('nome').value.trim(),
+                email: document.getElementById('email').value.trim().toLowerCase(),
+                senha: document.getElementById('senha').value,
+                cep: document.getElementById('cep').value,
+                endereco: document.getElementById('endereco').value,
+                numero: document.getElementById('numero').value,
+                bairro: document.getElementById('bairro').value,
+                cidade: document.getElementById('cidade').value,
+                estado: document.getElementById('estado').value
+            };
+            try {
+                const resp = await fetch('http://localhost:8080/funcionarios', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(funcionario)
+                });
+                if (resp.ok) {
+                    mensagem.style.color = 'green';
+                    mensagem.textContent = 'Cadastro realizado com sucesso!';
+                    document.getElementById('cadastroForm').reset();
+                } else {
+                    let erro = '';
+                    try {
+                        erro = await resp.text();
+                        if (erro && erro.startsWith('{')) {
+                            const erroJson = JSON.parse(erro);
+                            erro = erroJson.message || erro;
+                        }
+                    } catch {}
+                    mensagem.style.color = 'red';
+                    mensagem.textContent = erro || 'Erro ao cadastrar. Verifique os dados.';
+                }
+            } catch (err) {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao conectar com o servidor.';
+            }
+            btn.disabled = false;
         });
     </script>
 </body>
