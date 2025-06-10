@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Vínculos</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .container { max-width: 900px; margin: 40px auto; background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        h2 { text-align: center; margin-bottom: 24px; }
+        label { margin-right: 8px; }
+        select { padding: 6px; margin-right: 16px; }
+        button { padding: 8px 16px; background: #1976d2; color: #fff; border: none; border-radius: 4px; font-size: 15px; cursor: pointer; }
+        button:hover { background: #1565c0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 24px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #1976d2; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Relatório de Vínculos Funcionário x Cargo</h2>
+        <div style="margin-bottom:16px;">
+            <label for="filtroFuncionario">Funcionário</label>
+            <select id="filtroFuncionario"></select>
+            <label for="filtroCargo">Cargo</label>
+            <select id="filtroCargo"></select>
+            <button onclick="buscar()">Buscar</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Funcionário</th>
+                    <th>Cargo</th>
+                    <th>Data Início</th>
+                    <th>Data Fim</th>
+                    <th>Detalhes</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaRelatorio"></tbody>
+        </table>
+    </div>
+    <script>
+        async function carregarFuncionarios() {
+            const resp = await fetch('http://localhost:8080/funcionarios');
+            const funcionarios = await resp.json();
+            const select = document.getElementById('filtroFuncionario');
+            select.innerHTML = '<option value="">Todos</option>';
+            funcionarios.forEach(f => {
+                select.innerHTML += `<option value="${f.id}">${f.nome}</option>`;
+            });
+        }
+        async function carregarCargos() {
+            const resp = await fetch('http://localhost:8080/cargos');
+            const cargos = await resp.json();
+            const select = document.getElementById('filtroCargo');
+            select.innerHTML = '<option value="">Todos</option>';
+            cargos.forEach(c => {
+                select.innerHTML += `<option value="${c.id}">${c.nome}</option>`;
+            });
+        }
+        async function buscar() {
+            const funcionarioId = document.getElementById('filtroFuncionario').value;
+            const cargoId = document.getElementById('filtroCargo').value;
+            let url = 'http://localhost:8080/funcionarios-por-cargo';
+            if (funcionarioId) url += `?funcionarioId=${funcionarioId}`;
+            else if (cargoId) url += `?cargoId=${cargoId}`;
+            const resp = await fetch(url);
+            const lista = await resp.json();
+            const tabela = document.getElementById('tabelaRelatorio');
+            tabela.innerHTML = '';
+            if (!lista.length) {
+                tabela.innerHTML = '<tr><td colspan="5">Nenhum vínculo encontrado.</td></tr>';
+                return;
+            }
+            lista.forEach(v => {
+                tabela.innerHTML += `
+                    <tr>
+                        <td>${v.funcionario?.nome || ''}</td>
+                        <td>${v.cargo?.nome || ''}</td>
+                        <td>${v.dataInicio || ''}</td>
+                        <td>${v.dataFim || ''}</td>
+                        <td>${v.detalhes || ''}</td>
+                    </tr>
+                `;
+            });
+        }
+        carregarFuncionarios();
+        carregarCargos();
+        buscar();
+    </script>
+</body>
+</html>
