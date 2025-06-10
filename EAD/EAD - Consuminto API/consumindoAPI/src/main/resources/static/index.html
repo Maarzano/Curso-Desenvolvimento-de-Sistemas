@@ -47,6 +47,9 @@
                 if (usuario) {
                     mensagem.style.color = 'green';
                     mensagem.textContent = 'Login realizado com sucesso!';
+                    setTimeout(() => {
+                        window.location.href = 'cargos.html';
+                    }, 800);
                 } else {
                     mensagem.style.color = 'red';
                     mensagem.textContent = 'Email ou senha inválidos.';
