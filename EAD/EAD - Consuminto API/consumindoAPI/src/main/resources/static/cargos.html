@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestão de Cargos</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .container { max-width: 700px; margin: 40px auto; background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        h2 { text-align: center; margin-bottom: 24px; }
+        form { margin-bottom: 24px; }
+        label { display: block; margin-bottom: 6px; }
+        input, textarea { width: 100%; padding: 8px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 8px 16px; background: #1976d2; color: #fff; border: none; border-radius: 4px; font-size: 15px; cursor: pointer; }
+        button:hover { background: #1565c0; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #1976d2; color: #fff; }
+        .actions button { margin-right: 6px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Gestão de Cargos</h2>
+        <form id="cargoForm">
+            <input type="hidden" id="cargoId">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" required>
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="2"></textarea>
+            <button type="submit" id="btnSalvar">Salvar</button>
+            <button type="button" id="btnCancelar" style="display:none;background:#888;">Cancelar</button>
+        </form>
+        <div id="mensagem" style="text-align:center;margin-bottom:10px;"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaCargos"></tbody>
+        </table>
+    </div>
+    <script>
+        const form = document.getElementById('cargoForm');
+        const tabela = document.getElementById('tabelaCargos');
+        const mensagem = document.getElementById('mensagem');
+        const btnCancelar = document.getElementById('btnCancelar');
+        let editando = false;
+
+        async function carregarCargos() {
+            tabela.innerHTML = '<tr><td colspan="4">Carregando...</td></tr>';
+            const resp = await fetch('http://localhost:8080/cargos');
+            const cargos = await resp.json();
+            if (cargos.length === 0) {
+                tabela.innerHTML = '<tr><td colspan="4">Nenhum cargo cadastrado.</td></tr>';
+                return;
+            }
+            tabela.innerHTML = '';
+            cargos.forEach(cargo => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${cargo.id}</td>
+                    <td>${cargo.nome}</td>
+                    <td>${cargo.descricao || ''}</td>
+                    <td class="actions">
+                        <button onclick="editarCargo(${cargo.id}, '${cargo.nome.replace(/'/g,"\\'")}', '${(cargo.descricao||'').replace(/'/g,"\\'")}')">Editar</button>
+                        <button onclick="excluirCargo(${cargo.id})" style="background:#d32f2f;">Excluir</button>
+                    </td>
+                `;
+                tabela.appendChild(tr);
+            });
+        }
+
+        window.editarCargo = function(id, nome, descricao) {
+            document.getElementById('cargoId').value = id;
+            document.getElementById('nome').value = nome;
+            document.getElementById('descricao').value = descricao;
+            editando = true;
+            btnCancelar.style.display = '';
+        };
+
+        window.excluirCargo = async function(id) {
+            if (!confirm('Deseja realmente excluir este cargo?')) return;
+            const resp = await fetch(`http://localhost:8080/cargos/${id}`, { method: 'DELETE' });
+            if (resp.ok) {
+                mensagem.style.color = 'green';
+                mensagem.textContent = 'Cargo excluído com sucesso!';
+                carregarCargos();
+            } else {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao excluir cargo.';
+            }
+        };
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const id = document.getElementById('cargoId').value;
+            const nome = document.getElementById('nome').value.trim();
+            const descricao = document.getElementById('descricao').value.trim();
+            let resp;
+            if (editando && id) {
+                resp = await fetch(`http://localhost:8080/cargos/${id}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, nome, descricao })
+                });
+            } else {
+                resp = await fetch('http://localhost:8080/cargos', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nome, descricao })
+                });
+            }
+            if (resp.ok) {
+                mensagem.style.color = 'green';
+                mensagem.textContent = editando ? 'Cargo atualizado!' : 'Cargo cadastrado!';
+                form.reset();
+                editando = false;
+                btnCancelar.style.display = 'none';
+                carregarCargos();
+            } else {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao salvar cargo.';
+            }
+        });
+
+        btnCancelar.addEventListener('click', function() {
+            form.reset();
+            editando = false;
+            btnCancelar.style.display = 'none';
+            mensagem.textContent = '';
+        });
+
+        carregarCargos();
+    </script>
+</body>
+</html>
