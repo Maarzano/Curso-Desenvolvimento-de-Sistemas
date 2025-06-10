@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Vínculo Funcionário x Cargo</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .container { max-width: 500px; margin: 40px auto; background: #fff; padding: 32px 24px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+        h2 { text-align: center; margin-bottom: 24px; }
+        label { display: block; margin-bottom: 6px; }
+        select, input, textarea { width: 100%; padding: 8px; margin-bottom: 16px; border: 1px solid #ccc; border-radius: 4px; }
+        button { width: 100%; padding: 10px; background: #1976d2; color: #fff; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #1565c0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Vincular Funcionário a Cargo</h2>
+        <form id="vinculoForm">
+            <label for="funcionario">Funcionário</label>
+            <select id="funcionario" required></select>
+            <label for="cargo">Cargo</label>
+            <select id="cargo" required></select>
+            <label for="dataInicio">Data de Início</label>
+            <input type="date" id="dataInicio" required>
+            <label for="dataFim">Data de Fim</label>
+            <input type="date" id="dataFim">
+            <label for="detalhes">Detalhes</label>
+            <textarea id="detalhes" rows="2"></textarea>
+            <button type="submit">Salvar</button>
+        </form>
+        <div id="mensagem" style="text-align:center;margin-top:10px;"></div>
+    </div>
+    <script>
+        async function carregarFuncionarios() {
+            const resp = await fetch('http://localhost:8080/funcionarios');
+            const funcionarios = await resp.json();
+            const select = document.getElementById('funcionario');
+            select.innerHTML = '<option value="">Selecione</option>';
+            funcionarios.forEach(f => {
+                select.innerHTML += `<option value="${f.id}">${f.nome}</option>`;
+            });
+        }
+        async function carregarCargos() {
+            const resp = await fetch('http://localhost:8080/cargos');
+            const cargos = await resp.json();
+            const select = document.getElementById('cargo');
+            select.innerHTML = '<option value="">Selecione</option>';
+            cargos.forEach(c => {
+                select.innerHTML += `<option value="${c.id}">${c.nome}</option>`;
+            });
+        }
+        document.getElementById('vinculoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const funcionarioId = document.getElementById('funcionario').value;
+            const cargoId = document.getElementById('cargo').value;
+            const dataInicio = document.getElementById('dataInicio').value;
+            const dataFim = document.getElementById('dataFim').value;
+            const detalhes = document.getElementById('detalhes').value;
+            const mensagem = document.getElementById('mensagem');
+            mensagem.textContent = '';
+            if (!funcionarioId || !cargoId || !dataInicio) {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Preencha todos os campos obrigatórios.';
+                return;
+            }
+            const body = {
+                funcionario: { id: Number(funcionarioId) },
+                cargo: { id: Number(cargoId) },
+                dataInicio,
+                dataFim: dataFim || null,
+                detalhes
+            };
+            const resp = await fetch('http://localhost:8080/funcionarios-por-cargo', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            if (resp.ok) {
+                mensagem.style.color = 'green';
+                mensagem.textContent = 'Vínculo cadastrado com sucesso!';
+                this.reset();
+            } else {
+                mensagem.style.color = 'red';
+                mensagem.textContent = 'Erro ao cadastrar vínculo.';
+            }
+        });
+        carregarFuncionarios();
+        carregarCargos();
+    </script>
+</body>
+</html>
