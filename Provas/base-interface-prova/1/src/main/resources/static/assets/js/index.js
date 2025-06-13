@@ -1,4 +1,3 @@
-//API GET
 fetch('http://localhost:8080/api/v1/bibliotecarios', {
   method: 'GET',
   headers: {
@@ -14,13 +13,11 @@ fetch('http://localhost:8080/api/v1/bibliotecarios', {
 });
 
 
-//Adicionar Linha na Tabela
 function addlinha(dadosAPI){
   const tabela = document.getElementById('tabelaCorpo');
   dadosAPI.map(element => {   
     const linha = document.createElement('tr');
     var id = element.id;
-    //Adicionando HTML
     linha.innerHTML = `
       <td class="px-4 py-2">${element.id ? element.id : ''}</td>
       <td class="px-4 py-2">${element.nome}</td>
@@ -33,13 +30,11 @@ function addlinha(dadosAPI){
   });
 }
 
-//Cadastrar Novas pessoas do formulario
 function cadastrar(){
   event.preventDefault();
   const nome = document.getElementById('nome').value;
   const email = document.getElementById('email').value;
   if(nome && email){
-    //API POST  
     fetch('http://localhost:8080/api/v1/bibliotecarios', { 
       method: 'POST',
       headers: {
@@ -49,9 +44,7 @@ function cadastrar(){
     })
     .then(response => response.json())
     .then(data => {
-      // Adiciona a linha com o ID retornado pela API
       addlinha([data]);
-      // Limpando os campos
       document.getElementById('nome').value = "";
       document.getElementById('email').value = "";
       Swal.fire({
@@ -77,7 +70,6 @@ function cadastrar(){
   }
 }
 
-//Remover Alguma Linha da tabela
 function remover(botao, id){
   Swal.fire({
     icon: 'question',
@@ -95,7 +87,6 @@ function remover(botao, id){
       })
       .then(response => {
         if (response.ok) {
-          // Remove a linha da tabela
           const linharemover = botao.closest('tr');
           linharemover.remove();
           Swal.fire('Confirmado!', '', 'success');

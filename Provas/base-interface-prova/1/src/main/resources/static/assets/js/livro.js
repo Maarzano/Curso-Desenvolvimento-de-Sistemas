@@ -1,4 +1,3 @@
-// Carregar bibliotecários no select
 function carregarBibliotecarios() {
   fetch('http://localhost:8080/api/v1/bibliotecarios')
     .then(res => res.json())
@@ -11,7 +10,6 @@ function carregarBibliotecarios() {
     });
 }
 
-// Carregar livros na tabela
 function carregarLivros() {
   fetch('http://localhost:8080/api/v1/livros')
     .then(res => res.json())
@@ -37,7 +35,6 @@ function carregarLivros() {
     });
 }
 
-// Cadastrar ou editar livro
 document.getElementById('formLivro').onsubmit = function(event) {
   event.preventDefault();
   const id = document.getElementById('livroId').value;
@@ -82,7 +79,6 @@ document.getElementById('formLivro').onsubmit = function(event) {
   .catch(() => Swal.fire('Erro!', 'Não foi possível salvar o livro.', 'error'));
 };
 
-// Editar livro
 function editarLivro(id) {
   fetch('http://localhost:8080/api/v1/livros/' + id)
     .then(res => res.json())
@@ -97,14 +93,12 @@ function editarLivro(id) {
     });
 }
 
-// Cancelar edição
 document.getElementById('cancelarEdicao').onclick = function() {
   document.getElementById('formLivro').reset();
   document.getElementById('livroId').value = '';
   this.classList.add('hidden');
 };
 
-// Excluir livro
 function excluirLivro(id) {
   Swal.fire({
     icon: 'question',
@@ -125,6 +119,5 @@ function excluirLivro(id) {
   });
 }
 
-// Inicialização
 carregarBibliotecarios();
 carregarLivros();
