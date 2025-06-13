@@ -1,0 +1,15 @@
+Table bibliotecarios {
+  id bigint [pk, increment]
+  nome varchar(255) [not null]
+  email varchar(255) [not null]
+}
+
+Table livros {
+  id bigint [pk, increment]
+  bibliotecario_id bigint [ref: > bibliotecarios.id]
+  titulo varchar(255) [not null]
+  autor varchar(255) [not null]
+  genero varchar(20) [not null] // Enum: ROMANCE, TECNICO, FANTASIA, TERROR, SUSPENSE
+  status varchar(20) [not null, default: 'DISPONIVEL'] // Enum: DISPONIVEL, EMPRESTADO, RESERVADO
+  data_cadastro date [not null]
+}
